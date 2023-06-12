@@ -1,0 +1,163 @@
+/*body {
+  margin: 0;
+  background-color: #2e2e31;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}*/
+
+.chengben-container {
+  max-height: 600px;
+  max-width: 1000px;
+  min-height: 450px;
+  min-width: 1100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+
+}
+
+.panel {
+  height: 270px;
+  width: 190px;
+  position: relative;
+}
+.panel:hover .card {
+  filter: blur(1.5px);
+}
+.panel:hover .card1 {
+  background-size: 110% 110%;
+}
+.panel:hover .card2 {
+  background-size: 110% 110%;
+}
+.panel:hover .card3 {
+  background-size: 110% 110%;
+}
+.panel:hover .title {
+  color: rgba(255, 255, 255, 0.2);
+}
+.panel:hover .border {
+  border: 1px solid white;
+}
+.panel:hover .slide {
+  bottom: 0px;
+}
+.panel:hover .ring:before,
+.panel:hover .ring:after {
+  transform: translateX(-50%) translateY(-50%) rotate(310deg);
+}
+
+.ring,
+.card,
+.border,
+.slide,
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring {
+  color: #f6e6ea;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 170px;
+}
+
+.card {
+  background: #f0ead6;
+  position: relative;
+  transition: all 1s;
+  height: 360px;
+  width: 245px;
+  border: 1px solid white;
+}
+
+.card1 {
+  background: url(../image/chengben/01.jpg) no-repeat center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.card2 {
+  background: url(../image/chengben/02.jpg) no-repeat center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.card3 {
+  background: url(../image/chengben/03.jpg) no-repeat center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.ring:before,
+.ring:after {
+  content: "";
+  padding: 1.0em 0.4em;
+  position: absolute;
+  left: 50%;
+  width: 115%;
+  top: 50%;
+  display: block;
+  border: 5px solid #cfa2aa;
+  border-radius: 50%;
+  transition: transform 1s;
+  transform: translateX(-50%) translateY(-50%) rotate(50deg);
+}
+
+.ring:before {
+  border-color: #ebebeb #f75858 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+.ring:after {
+  border-color: rgb(244, 234, 221) rgb(250 246 241 / 8%) #f78484 rgb(250 246 241 / 8%)
+}
+
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  transition: all 1s;
+  top: 0;
+  color: #cd5c5c;
+}
+
+.para {
+  bottom: 0;
+  font-size: 20px;
+  font-family: "Raleway";
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  color:#a75662;
+}
+
+.border {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 350px;
+  width: 235px;
+  transition: border 1s;
+  overflow: hidden;
+}
+
+.slide {
+  height: 360px;
+  width: 245px;
+  position: absolute;
+  bottom: -450px;
+  background: rgba(225, 218, 167, 0.5);
+  transition: bottom 1s;
+  flex-direction: column;
+}
+
+.fa-plane {
+  font-size: 16px;
+}

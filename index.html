@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+
+    <title style="line-height: 20px">猪说数据</title>
+    <!--====== Bootstrap ======-->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <!--====== Fontawesome ======-->
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <!--====== Slick Slider ======-->
+    <link rel="stylesheet" href="static/css/slick.css">
+    <!--====== Nice Select  ======-->
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <!--====== Animate css  ======-->
+    <link rel="stylesheet" href="static/css/animate.css">
+    <!--====== Default css  ======-->
+    <link rel="stylesheet" href="static/css/default.css">
+    <!--====== Main css ======-->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="static/css/responsive.css">
+
+    <!--====== 以下是你自己的 css ======-->
+    <link rel="icon" type="image/png" sizes="56x56" href="image/fav-icon/favicon-56x56.png">
+    <link rel="stylesheet" type="text/css" href="css\style-head.css">
+    <link rel="stylesheet" type="text/css" href="css\responsive-head.css"><!--开头动画-->
+    <link rel="stylesheet" href="css\piaofu-style.css">
+
+    <link rel="stylesheet" href="css/yellow-base.css">
+    <link rel="stylesheet" href="css/yellow-swiper.css">
+    <link rel="stylesheet" href="css/yellow-style.css"><!--从黄色模板里整出来的-->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="icon" href="image/scu_logo.png">
+    <link rel="stylesheet" href="./css/dots.css">
+
+    <link rel="stylesheet" href="css\style-juchi.css"><!--锯齿美食图展示, css里面删了一个body的样式-->
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style3.css">
+
+    <link rel="stylesheet" type="text/css" href="css/roll.css">
+    <script src="js/jquery3.min.js"></script><!--滚动新闻条-->
+
+
+
+    <!--圆形时间轴-->
+    <link rel='stylesheet' href='css/history.css' type='text/css' media='all' />
+    <script src="js/jquery-ciecle.min.js"></script>
+    <script type='text/javascript'
+        src='https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/lodash.js/4.17.21/lodash.min.js'></script>
+    <script type='text/javascript' src='js/TweenMax.min.js'></script>
+    <script type='text/javascript' src='js/DrawSVGPlugin.js'></script>
+    <script type='text/javascript' src='js/namespaces.js'></script>
+    <script type="text/javascript">
+        function preload_images(images, functions) {
+            if (typeof functions === 'undefined') functions = {};
+            var loaded = 0;
+            for (var i = 0; i < images.length; i++) {
+                ///console.log('preload '+images[i]);
+                var img = new Image();
+                img.onload = img.onerror = function () {
+                    ////console.log(img.src + ' loaded');
+                    var onImgParams = {
+                        //img : img,
+                        //index : i,
+                        loadedPct: (loaded / images.length)
+                    };
+                    if (_.isFunction(functions.onImgLoad)) functions.onImgLoad(onImgParams);
+
+                    loaded++;
+                    if (loaded >= images.length && _.isFunction(functions.onAllImgsLoaded)) {
+                        ////console.log('all imgs loaded');
+                        functions.onAllImgsLoaded()
+                    }
+                };
+                img.src = images[i];
+            }// endfor
+        }// preload_images()
+    </script>
+
+    <script src="js\cloud.js"></script>
+
+    <link rel="stylesheet" href="css\liuyan-style.css"><!--文学作品板-->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css'>
+    <link rel="stylesheet" href="css\chengben-style.css">
+
+
+    <style type="text/css">
+        .div {
+            margin: 0;
+            padding: 0;
+            float: left;
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body onload="setDivHeight()">
+    <div class="nav" id="nav">
+        <a><img src="image/scu_logo.png" width="50"></a>
+        <a style="color: #df6275;">页面导航</a>
+        <a style="margin-left: 220px">| </a>
+        <a class="anchor" href="#first-content">开篇</a>
+        <a>&nbsp;|&nbsp;</a>
+        <a class="anchor" href="#anchor1">行在中国</a>
+        <a>&nbsp;|&nbsp;</a>
+        <a class="anchor" href="#anchor2">远航的猪</a>
+        <a>&nbsp;|&nbsp;</a>
+        <a class="anchor" href="#anchor3">多面猪生</a>
+        <a>&nbsp;|&nbsp;</a>
+        <a class="anchor" href="#anchor4">结语</a>
+        <a>&nbsp;|&nbsp;</a>
+    </div>
+
+    <div class="seo-theme">
+
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+        </div>
+
+        <div id="banner">
+            <div class="rev_slider_wrapper" style="height: 815px !important;">
+                <div id="seo-main-banner" class="rev_slider" style="height: 815px!important;" data-version="5.0.7">
+                    <ul>
+                        <li data-index="rs-280" data-transition="zoomout" data-slotamount="default"
+                            data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"
+                            data-rotate="0" data-saveperformance="off" data-title="01" data-description="">
+                            <img src="image/home/slide-7.jpg" alt="image" class="rev-slidebg" data-bgparallax="3"
+                                data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone"
+                                data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0"
+                                data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
+                            <div class="inner-container shape">
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['-120','-120','-120','-120']" data-width="full" data-height="none"
+                                    data-whitespace="normal" data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                    data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="500"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"
+                                    style="z-index: 6;">
+
+                                </div>
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['10','10','10','0']" data-width="full" data-height="none"
+                                    data-whitespace="normal" data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                    data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;"
+                                    data-start="1500" data-splitin="none" data-splitout="none" style="z-index: 6;">
+                                </div>
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['115','115','115','130']" data-transform_idle="o:1;"
+                                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                    data-transform_in="x:[-100%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2500;e:Power3.easeInOut;"
+                                    data-transform_out="auto:auto;s:1000;e:Power2.easeInOut;" data-start="2000"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"></div>
+                                <div class="tp-caption rs-parallaxlevel-3" data-x="['right','right','right','right']"
+                                    data-hoffset="['0','0','-60','0']" data-y="['middle','middle','bottom','middle']"
+                                    data-voffset="['0','0','0','0']" data-transform_idle="o:1;"
+                                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                    data-transform_in="x:[100%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2500;e:Power3.easeInOut;"
+                                    data-transform_out="auto:auto;s:1000;e:Power2.easeInOut;" data-start="2200"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"><img
+                                        src="image/home/object.png" alt="image" style="margin:30px 10px 0px 30px; ">
+                                </div>
+                            </div>
+                        </li>
+                        <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"
+                            data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"
+                            data-thumb="image/home/slide-7.jpg" data-rotate="0" data-saveperformance="off"
+                            data-title="02" data-description="">
+                            <img src="image/home/slide-7.jpg" alt="" data-bgposition="center center" data-kenburns="on"
+                                data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100"
+                                data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0"
+                                data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <div class="inner-container shape">
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['-120','-120','-120','-120']" data-width="full" data-height="none"
+                                    data-whitespace="normal" data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                    data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="500"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"
+                                    style="z-index: 6;">
+
+                                </div>
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['10','10','10','0']" data-width="full" data-height="none"
+                                    data-whitespace="normal" data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                    data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;"
+                                    data-start="1500" data-splitin="none" data-splitout="none" style="z-index: 6;">
+                                </div>
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['115','115','115','130']" data-transform_idle="o:1;"
+                                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                    data-transform_in="x:[-100%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2500;e:Power3.easeInOut;"
+                                    data-transform_out="auto:auto;s:1000;e:Power2.easeInOut;" data-start="2000"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"></div>
+                                <div class="tp-caption rs-parallaxlevel-3" data-x="['right','right','right','right']"
+                                    data-hoffset="['0','0','-60','0']" data-y="['middle','middle','bottom','middle']"
+                                    data-voffset="['0','0','0','0']" data-transform_idle="o:1;"
+                                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                    data-transform_in="x:[100%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2500;e:Power3.easeInOut;"
+                                    data-transform_out="auto:auto;s:1000;e:Power2.easeInOut;" data-start="2200"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"><img
+                                        src="image/home/object.png" alt="image" style="margin:30px 10px 0px 30px;">
+                                </div>
+                            </div>
+                        </li>
+                        <li data-index="rs-20" data-transition="zoomin" data-slotamount="7"
+                            data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"
+                            data-thumb="image/home/slide-7.jpg" data-rotate="0" data-saveperformance="off"
+                            data-title="03" data-description="">
+                            <img src="image/home/slide-7.jpg" alt="" data-bgposition="center center" data-kenburns="on"
+                                data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100"
+                                data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500"
+                                data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <div class="inner-container shape">
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['-120','-120','-120','-120']" data-width="full" data-height="none"
+                                    data-whitespace="normal" data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                    data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="500"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"
+                                    style="z-index: 6;">
+
+                                </div>
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['10','10','10','0']" data-width="full" data-height="none"
+                                    data-whitespace="normal" data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                    data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;"
+                                    data-start="1500" data-splitin="none" data-splitout="none" style="z-index: 6;">
+                                </div>
+                                <div class="tp-caption" data-x="['left','left','left','left']"
+                                    data-hoffset="['0','0','15','5']" data-y="['middle','middle','middle','middle']"
+                                    data-voffset="['115','115','115','130']" data-transform_idle="o:1;"
+                                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                    data-transform_in="x:[-100%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2500;e:Power3.easeInOut;"
+                                    data-transform_out="auto:auto;s:1000;e:Power2.easeInOut;" data-start="2000"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"></div>
+                                <div class="tp-caption rs-parallaxlevel-3" data-x="['right','right','right','right']"
+                                    data-hoffset="['0','0','-60','0']" data-y="['middle','middle','bottom','middle']"
+                                    data-voffset="['0','0','0','0']" data-transform_idle="o:1;"
+                                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                    data-transform_in="x:[100%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2500;e:Power3.easeInOut;"
+                                    data-transform_out="auto:auto;s:1000;e:Power2.easeInOut;" data-start="2200"
+                                    data-splitin="none" data-splitout="none" data-responsive_offset="on"><img
+                                        src="image/home/object.png" alt="image" style="margin:30px 10px 0px 30px;">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="head-pic" id="head-pic">
+    </div>
+
+
+    <div class="content" id="first-content">
+        <!-- 1号小而快，2号大而快；3号大而慢，4号小而慢 -->
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div id='stars4'></div>
+        <div class="plain-text" style="width: 70%; margin: 0 auto; text-align: justify">
+            <p>猪，古人称之为<span class="span-bold">“豕”</span>。经考古学家证实，中国人养猪的历史迄今已有六七千年。
+                在古代，猪还是每个家庭都要有的重要财产。因此在屋檐下加一个“豕”字，便诞生了“家”这个字。</p>
+        </div>
+
+        <div class="pic-box" style="width: 90%; margin: 0 auto;margin-top: 40px; margin-bottom:40px;">
+            <img src="image\豕的演变.gif" style="width:50%; float: left;" />
+        </div>
+        <!-- 想给这个做个变化的动图 -->
+
+        <div class="plain-text" style="width: 70%; margin: 0 auto; text-align: justify">
+            <p><span
+                    class="span-bold">古人有云：民以食为天。</span>猪是六畜之首，更是中国人餐桌上的“常客”——淮扬菜的狮子头、粤菜的咕噜肉，还有各种卤肉、烤乳猪、红烧肉······猪肉早已成为支撑中国人美食餐桌的重要角色。
+            </p>
+        </div>
+
+        <div class="gallery">
+            <img src="image\food\卤肉.png" alt="卤猪肉">
+            <img src="image\food\糖醋里脊.png" alt="糖醋里脊">
+            <img src="image\food\水煮肉片.png" alt="水煮肉片">
+            <img src="image\food\烤乳猪.png" alt="烤乳猪">
+            <img src="image\food\清蒸排骨.png" alt="清蒸排骨">
+            <img src="image\food\肉夹馍.png" alt="肉夹馍">
+        </div>
+
+        <div class="plain-text" style="width: 70%; margin: 0 auto; text-align: justify;">
+            <p>现如今，中国是世界上最大的猪肉生产和消费国之一，中国人一年大约会吃掉<span class="counter" style="font-weight:bold;
+                color: #CF6776; font-size: 30px;">72169</span>万头养殖猪。
+                作为中国人的<span class="span-bold">“心头肉”</span>，猪价的波动自然是也是餐桌大事。</p>
+        </div>
+
+        <div class="pic-box" style="margin-top: 2em">
+            <div align="center">
+                <img class="img2" src="image\对话框.gif" width="50%">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--     2.正文引入       -->
+    <div class="subsubtitle transparent-bg" id="anchor1">
+        行在中国：猪在国内怎么样了？
+    </div>
+
+    <div class="content" style="margin-top: 0px ">
+
+        <div class="xoxo_fn_bloglist blog_layout_classic">
+            <ul>
+                <li class="post_item">
+                    <div class="blog__item blog__item_classic">
+                        <div class="blog__quote_item">
+                            <div class="plain-text" style="width: 100%; margin: 0 auto; text-align: center;">
+                                <p>一只猪从出生到出栏，大概需要经过6个月的时间，体重能达到120-130斤左右。<br>
+                                    从生产、养殖再到销售，其中包含一系列环节，每一环节与最终市场关系密切。</p>
+                            </div>
+                            <div class="pic-box" align="center" style="margin-top: 2em">
+                                <img class="img2" src="image\产业链概况.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="plain-text"
+            style="width: 65%; margin: 0 auto; margin-top:1em; margin-bottom: 0; text-align: justify;">
+            <p>养殖成本主要分为<span class="span-bold">物质与服务成本、人工劳动成本、土地成本</span>三类。
+                物质与服务成本除了饲料成本外，猪仔的进货价占据了大头，猪仔的价格高低很大程度上决定了养殖过程中的总利润的多少。</p>
+        </div>
+
+        <div class="chengben-container">
+            <div class="panel">
+                <div class="ring">
+                    <div class="card card1"></div>
+                    <div class="border">
+                        <p class="title">物质与服务费用</p>
+                        <div class="slide">
+                            <h6 class="para">物质与服务费用包括</h6>
+                            <div class="line">
+                                <h6 class="para">仔畜进价</h6>
+                                <h6 class="para">精饲料费</h6>
+                            </div>
+                            <div class="line">
+                                <h6 class="para">间接费用</h6>
+                                <h6 class="para">其他费用</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="ring">
+                    <div class="card card2"></div>
+                    <div class="border">
+                        <p class="title">人工成本</p>
+                        <div class="slide">
+                            <h6 class="para">人工成本包括</h6>
+                            <div class="line">
+                                <h6 class="para">家庭用工折价</h6>
+                            </div>
+                            <div class="line">
+                                <h6 class="para">雇工费用</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="ring">
+                    <div class="card card3"></div>
+                    <div class="border">
+                        <p class="title">土地成本</p>
+                        <div class="slide">
+                            <h6 class="para">土地成本包括</h6>
+                            <div class="line">
+                                <h6 class="para">猪棚场地费用</h6>
+                                <h6 class="para">£399</h6>
+
+                            </div>
+                            <div class="line">
+                                <h6 class="para">土地环境成本</h6>
+                                <h6 class="para">£257</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="plain-text" style="width: 65%; margin: 0 auto; margin-top:1em; text-align: justify;">
+            <p>基于以上三类所需成本，养殖一头猪需要投入1500元以上的资金，并且，这个价格近些年随着饲料、人工、土地成本的上涨而水涨船高，在2020年甚至翻了近一倍。
+                但是养猪所获得的收益却不像成本一样稳定，遇到猪价暴跌的时期，<span class="span-bold">养猪收益甚至为负。</span></p>
+        </div>
+
+        <div class="pic-box" style="margin-top:2em;">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_125686af85914fe2a8dd4fa80c5e1ad0" width="600"
+                    height="510" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="plain-text" style="width:70%; margin: 0 auto; margin-top:3em; text-align: justify">
+            <p>作为世界上最大的猪肉生产国之一，我国近年来的生猪出栏量基本保持在69000万头以上，2019年-2020年受非洲猪瘟影响严重，有所下降，但2021-2022年已恢复到以往水平。
+                根据国家统计局最新公布的数据，我国在2022年，全国生猪出栏69995万头，比上年增加2867万头，增长4.3%。全年猪肉产量5541万吨，比上年增加246万吨，增长4.6%。<br><br>其中，生猪产量最多的地方为<span
+                    class="span-bold">四川省</span>，仅2022年出栏6548万头生猪，占将近全国产量的8%。
+            </p>
+        </div>
+
+        <div class="pic-box" align="center" style="margin: 0 auto; margin-top: 2em; width:60%;">
+            <div style="width: 50%; margin:0; padding: 0; ">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_508c0762cb3eac3c1db87ac465f5a1cf" width="600"
+                    height="340" scrolling="no" frameborder="0" align="left" background-color=rgba(0,0,0,0);></iframe>
+            </div>
+            <div style="width: 50%; margin-right:20px; padding: 0;">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_ddbac0193af4698847958b25836e5857" width="600"
+                    height="340" scrolling="no" frameborder="0" align="right" background-color=rgba(0,0,0,0);></iframe>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em">
+            <p>大量的猪肉供应需要庞大的养殖产业来支持。2022年末，全国生猪存栏45256万头，比上年末增加333万头。
+                目前，由于国家政策调整、非洲猪瘟等原因，我国的生猪养殖产业链正经历由传统农户散养向<span class="span-bold">规模化</span>、<span
+                    class="span-bold">集约化、工厂化饲养</span>转变。
+                以牧原、温氏等为首的TOP20猪企提供了我国市场上的20%的生猪供应量。
+            </p>
+        </div>
+        <div class="pic-box" style="margin-top: 2em">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_d5decb8803832a7f952870d1b74a1910" width="600"
+                    height="510" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em;">
+            <p>虽然有庞大的养殖产业以及日渐完善的生猪养殖产业链作为保障，但我国的猪价变动周期仍然变化较为频繁且幅度较大。
+                就以近5年为例，<span class="span-bold">最高和最低的猪价相差近两倍</span>，猪肉价格直追牛肉。</p>
+        </div>
+        <div class="pic-box" style="margin-top: 2em">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_1ac1d879ac29fc64d12286eb4fe5c9a8" width="600"
+                    height="510" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em;">
+            <p>猪价变动其实是正常的，根据市场供应关系，猪价供应本就有其对应的<span class="span-bold">猪周期</span>。此外还有季节、节日也会影响市场上的猪肉价格。</p>
+        </div>
+
+
+        <div class="blog-slider">
+            <div class="blog-slider__wrp swiper-wrapper">
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="image\lunbo\03.png" alt="猪周期">
+                    </div>
+                    <div class="blog-slider__content">
+                        <div class="blog-slider__title">波动的特殊规律——猪周期</div>
+                        <div class="blog-slider__text" style="letter-spacing: 1px;">
+                            猪周期是一种经济现象，指由<span
+                                class="span-bold">供给需求不平衡</span>导致的猪肉价格发生周期性变化。<br><br>“猪周期”的循环轨迹一般是：<br><br><span
+                                class="span-bold">肉价上涨——母猪存栏量大增——生猪供应增加——猪肉供大于求——肉价下跌——大量淘汰母猪——生猪供应减少——生猪供不应求——肉价上涨。</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="image\lunbo\01.png" alt="节日性波动">
+                    </div>
+                    <div class="blog-slider__content">
+                        <div class="blog-slider__title">波动的一般规律——节日性波动</div>
+                        <div class="blog-slider__text" style="letter-spacing: 1px;">
+                            <p>1~4月春节备货结束，此时需求回落价格趋于下跌；<br><br>8~9月正逢学校开学、国庆、中秋节假日，是猪肉的消费旺季；<br><br>中国南方有腌腊肉、北方有做灌肠的习俗，所以11~12月为春节备货期，猪价持续攀高。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="image\lunbo\02.png" alt="季节性波动">
+                    </div>
+                    <div class="blog-slider__content" style="letter-spacing: 1px;">
+                        <div class="blog-slider__title">波动的一般规律——季节性波动</div>
+                        <div class="blog-slider__text">
+                            高温天气下，居民食欲受影响，饮食习惯改变，减少油腻肉类的摄入，因此每年夏季前后为红肉消费淡季。<br><br>故消费者对猪肉需求下降，市场供过于求，价格下跌。<br><br>临近年末，气温降低，猪肉需求回升价格随之上涨。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-slider__pagination"></div>
+        </div>
+        <script src="js/jquery2.min.js"></script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/index.js"></script>
+        <!--翻转卡片-->
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3%">
+            <p>但是，为什么在2019年会出现猪价飞涨，猪牛同价的情况呢？主要还是受非洲猪瘟的影响。</p>
+        </div>
+
+        <div id="page" class="site">
+            <div id="content" class="site-content">
+                <div class="content-block history">
+                    <div class="content-wrap small-wrap vert-spaced lined">
+                        <div class="columns">
+                            <div class="col third middled copy-col onScrollEnter">
+                                <h4 class="chapter-headline">2015</h4>
+                                <p class="chapter-copy s-text top-spaced">
+                                    <span class="span-title">生猪市场低迷结束,猪价反常式上升</span><br><br>1.3月份<span
+                                        class="span-bold">“黑蹄猪”</span>事件爆发。检疫部门严查生猪安全，大型屠宰企业也停收存安全隐患的猪，导致市场上可出栏、能出栏的猪数量大幅减少。<br>2.2013年底开始的能繁母猪淘汰,产能减少作用开始显现<br>3.2014年冬春季仔猪<span
+                                        class="span-bold">疫病高发</span>，成活率大减带来生猪供应断层
+                                </p>
+                            </div>
+                            <!-- .col -->
+                            <div class="col two-thirds middled ui-col rel onScrollEnter">
+                                <div class="chapter-image img imgfill" style="background-image:url('images/t1.jpg');">
+                                </div>
+                                <div class="timeline-container circle-timelines">
+                                    <div class="fill-parent ui-timelines">
+                                        <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 600 600"
+                                            style="enable-background:new 0 0 600 600;" xml:space="preserve">
+                                            <circle fill="none" stroke="#000000" stroke-miterlimit="10" cx="300"
+                                                cy="300" r="300" />
+                                        </svg>
+                                        <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 600 600"
+                                            style="enable-background:new 0 0 600 600;" xml:space="preserve">
+                                            <circle fill="none" stroke="#000000" stroke-miterlimit="10" cx="300"
+                                                cy="300" r="300" />
+                                        </svg>
+                                    </div>
+                                    <!-- .ui-timelines -->
+                                    <div class="ui-chapters fill-parent">
+                                        <div class="ui-chapter current-chapter"> <span class="chapter-point">55</span>
+                                            <span class="chapter-label">1919</span>
+                                        </div>
+                                        <div class="ui-chapter"> <span class="chapter-point"></span> <span
+                                                class="chapter-label">1953</span> </div>
+                                        <div class="ui-chapter"> <span class="chapter-point"></span> <span
+                                                class="chapter-label">1966</span> </div>
+                                        <div class="ui-chapter"> <span class="chapter-point"></span> <span
+                                                class="chapter-label">1978</span> </div>
+                                        <div class="ui-chapter"> <span class="chapter-point"></span> <span
+                                                class="chapter-label">1980</span> </div>
+                                        <div class="ui-chapter"> <span class="chapter-point"></span> <span
+                                                class="chapter-label">2000</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type='text/javascript' src='js/History.js?ver=4.4.2'></script>
+        <script type='text/javascript'>
+            /* <![CDATA[ */
+
+
+            var _history_data = [
+                { "title": "2015", "copy": "<span class='span-title'>生猪市场低迷结束,猪价反常式上升</span><br><br>1.3月份<span class='span-bold'>“黑蹄猪”</span>事件爆发。检疫部门严查生猪安全，大型屠宰企业也停收存安全隐患的猪，导致市场上可出栏、能出栏的猪数量大幅减少。<br>2.2013年底开始的能繁母猪淘汰,产能减少作用开始显现<br>3.2014年冬春季仔猪<span class='span-bold'>疫病高发</span>，成活率大减带来生猪供应断层。", "img": { "src": "images\/t1.jpg" } },
+                { "title": "2016", "copy": "<span class='span-title'>猪价小高峰,创近三年新纪录</span><br><br>1.<span class='span-bold'>拉尼娜天气</span>导致全球范围内大豆减产，大豆价格上涨推动豆粕价格上涨。豆粕价格的上涨进一步推动猪肉价格上涨。<br><br>2.当年南方的<span class='span-bold'>洪涝灾害</span>频发，局部出现道路不畅的情况，猪肉难以顺利送往市场。<br><br>后续：然而同样因为洪灾，部分养殖户急切抛售生猪，加上夏季需求下降，猪价迅速下跌。", "img": { "src": "images\/t2.jpg" } },
+                { "title": "2017", "copy": "<span class='span-title'>猪价跌跌不休,部分小幅回升</span><br><br>1.市场<span class='span-bold'>供强需弱</span>问题持续并逐渐加剧,价格持续低迷。<br>2.年中玉米价格回升，养殖利润缩减。<br>3.低迷价格+低养殖利润→养殖户<span class='span-bold'>集中出栏</span>有所增加。<br>4.市场供强虚弱问题进一步加剧。<br>5.大量<span class='span-bold'>低价进口冷冻肉品</span>进入市场,加剧猪价此番下跌趋势，并一直持续至2018年中旬。<br>", "img": { "src": "images\/t3.jpg" } },
+                { "title": "2018", "copy": "<span class='span-title'>猪瘟爆发,暴风雨前的低迷</span><br><br>1.2018年下半年非洲猪瘟在北方集中爆发，一经发现养殖场生猪将进行全面消杀，中小养殖户在<span class='span-bold'>恐慌中纷纷加快出栏速度</span>，猪价快速下跌。<br>2.市场养殖端<span class='span-bold'>积极性降低</span>，补栏热情减缓，企业的<span class='span-bold'>战略布局打乱</span>，计划产能投放大幅延。", "img": { "src": "images\/t4.jpg" } },
+                { "title": "2019", "copy": "<span class='span-title'>猪价起飞,吃不起猪肉的一年</span><br><br>1.<span class='span-bold'>非洲猪瘟</span>：大量疑似患病生猪被扑杀或为避免患病而加快出栏，生猪存栏及猪肉供应市场处于<span class='span-bold'>紧张状态</span><br>2.<span class='span-bold'>生猪饲养环保标准的提高</span>:随相关政策的出台，部分地方政府以改善生态环境为由，<span class='span-bold'>“一刀切”</span>地将当地猪场关停。养殖企业和养殖户遭受了经济损失，生猪产量下降<br>3.<span class='span-bold'>生猪调运令</span>:为了防止猪瘟蔓延而限制活猪<span class='span-bold'>跨省调运</span>，却因此使养猪弱省没有足量的猪肉供应，加快了该地区猪肉价格的上涨速度2019年飞涨的猪价一直持续至2020年,虽价格变动趋于正常但持续高位运行。", "img": { "src": "images\/t5.jpg" } },
+                { "title": "2020", "copy": "<span class='span-title'>2021年1月:猪价快速下跌，5个月内降幅超60%</span><br>1. 生猪产能持续恢复<br>2.价格上涨市场预期中，部分养殖户不断压栏，大量出现400斤/头，甚至更大体重的超大猪，<span class='span-bold'>大比例超大猪</span>额外增加了猪肉供应<br>3.<span class='span-bold'>疫情点状频发</span>,餐饮业营运状况仍然不佳，消费比较低迷,市场上供大于求<br><br><span class='span-title'>2022年5月后：宏观调控下,猪肉价格大幅回升</span><br>1.中央和部分省份储备冻猪肉收储工作稳定开展,通过<span class='span-bold'>宏观调控</span>持续稳定市场信心。<br>2.市场普遍预期新一轮<span class='span-bold'>猪周期上行拐点</span>临近，养殖场户补栏积极性提升，仔猪、生猪、猪肉价格均大幅上涨。", "img": { "src": "images\/t6.jpg" } }];
+          /* ]]> */
+        </script>
+        <script type='text/javascript' src='js/page_about.js'></script>
+
+
+
+
+        <div class="xoxo_fn_bloglist blog_layout_classic">
+            <ul>
+                <li class="featured_posts_wrapper post_item">
+                    <div class="featured_post_item">
+                        <div class="fp_heading">
+                            <h3><span class="text_wrapper"><span class="icon__before"><svg
+                                            xmlns="http://www.w3.org/2000/svg" version="1.0" width="512.000000pt"
+                                            height="512.000000pt" viewBox="0 0 512.000000 512.000000"
+                                            preserveAspectRatio="xMidYMid meet" class="fn__svg  replaced-svg">
+                                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                                stroke="none">
+                                                <path
+                                                    d="M1955 5106 c-16 -7 -40 -24 -52 -38 -13 -14 -229 -557 -533 -1343 -557 -1439 -532 -1362 -480 -1435 44 -62 22 -60 785 -60 588 0 695 -2 695 -14 0 -8 -112 -467 -250 -1021 -137 -554 -250 -1025 -250 -1047 0 -100 92 -168 189 -139 20 6 47 21 58 33 30 32 2112 3275 2130 3318 29 68 -6 158 -73 186 -27 11 -144 14 -634 14 -330 0 -600 3 -600 6 0 3 135 312 300 686 237 538 300 690 300 723 0 51 -31 101 -80 126 -33 18 -73 19 -755 19 -578 -1 -726 -3 -750 -14z">
+                                                </path>
+                                            </g>
+                                        </svg></span><span
+                                        class="text">非洲猪瘟信息专栏</span><!--.featured_post_item .fp_heading h3-->
+                                    <span class="icon__after"><svg xmlns="http://www.w3.org/2000/svg" version="1.0"
+                                            width="512.000000pt" height="512.000000pt"
+                                            viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"
+                                            class="fn__svg  replaced-svg">
+                                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                                stroke="none">
+                                                <path
+                                                    d="M1955 5106 c-16 -7 -40 -24 -52 -38 -13 -14 -229 -557 -533 -1343 -557 -1439 -532 -1362 -480 -1435 44 -62 22 -60 785 -60 588 0 695 -2 695 -14 0 -8 -112 -467 -250 -1021 -137 -554 -250 -1025 -250 -1047 0 -100 92 -168 189 -139 20 6 47 21 58 33 30 32 2112 3275 2130 3318 29 68 -6 158 -73 186 -27 11 -144 14 -634 14 -330 0 -600 3 -600 6 0 3 135 312 300 686 237 538 300 690 300 723 0 51 -31 101 -80 126 -33 18 -73 19 -755 19 -578 -1 -726 -3 -750 -14z">
+                                                </path>
+                                            </g>
+                                        </svg></span></span></h3>
+                        </div>
+                        <div class="fp_content">
+                            <ul>
+                                <li>
+                                    <div class="plain-text" style="width: 85%; margin: 0 auto; text-align: justify">
+                                        <p>
+                                            <span
+                                                class="span-bold">非洲猪瘟（ASF）</span>是由非洲猪瘟病毒（ASFV）感染家猪和各种野猪（如非洲野猪、欧洲野猪等）而引起的一种急性、出血性、烈性传染病。<br><br>
+                                            世界动物卫生组织（OIE）将其列为法定报告动物疫病，该病也是我国重点防范的<span class="span-bold">一类动物疫情</span>。
+                                            非洲猪瘟临床症状与猪瘟症状相似，只能依靠实验室监测确诊。主要损害猪的脾、淋巴结、心和肾等脏器，其<span
+                                                class="span-bold">病率和死亡率几乎达100%</span>。<br><br>
+                                            2018年8月3日，辽宁沈阳确诊我国首例非洲猪瘟病例，<span class="span-bold">传播快</span>、<span
+                                                class="span-bold">危害性大</span>的非洲猪瘟对中国的养猪行业和“肉篮子”造成了<span
+                                                class="span-bold">巨大影响</span>。<br><br>
+                                            2018年9月至2019年1月，非洲猪瘟在北方集中暴发，后开始向南方蔓延。截至2019年7月31日，全国31个一级行政区均有城市发生了非洲猪瘟，共<span
+                                                class="span-bold">147起</span>疫情，因病死亡以及扑杀的生猪累计<span
+                                                class="span-bold">113万头</span>。
+                                        </p>
+                                    </div>
+
+                                    <!--新闻信息滚动-->
+                                    <div class="news-scroll" style="margin-top: 5px; margin-bottom:5px; ">
+                                        <ul class="roll" id="scroll-ul">
+                                            <li class="roll_1"><a href="">
+                                                    <e>2018-08-03</e>
+                                                    <p>辽宁省沈阳市某社区发生非洲猪瘟疫情，确诊国内首例非洲猪瘟。</p>
+                                                </a></li>
+                                            <li class="roll_2"><a href="">
+                                                    <e>2018-08-17</e>
+                                                    <p>河南省郑州市某屠宰场生猪不明原因死亡，非洲猪瘟波及至中原。</p>
+                                                </a></li>
+                                            <li class="roll_3"><a href="">
+                                                    <e>2018-08-19</e>
+                                                    <p>江苏省连云港市海州区发生一起非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_4"><a href="">
+                                                    <e>2018-09-06</e>
+                                                    <p>黑龙江省佳木斯市和安徽芜湖市、宣城市新确诊非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_5"><a href="">
+                                                    <e>2018-09-14</e>
+                                                    <p>内蒙古自治区锡林郭勒盟阿巴嘎旗和河南省新乡市获嘉县发生非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_6"><a href="">
+                                                    <e>2018-10-30</e>
+                                                    <p>山西省阳曲县、湖南省沅陵县和云南省普洱市思茅区出现非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_7"><a href="">
+                                                    <e>2018-11-07</e>
+                                                    <p>湖北省罗田县、福建省莆田市城厢区排查出非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_8"><a href="">
+                                                    <e>2018-11-17</e>
+                                                    <p>江西省上饶市鄱阳县、云南省昆明市呈贡区、四川省成都市新津县排查出非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_9"><a href="">
+                                                    <e>2018-12-05</e>
+                                                    <p>陕西省西安市长安区、北京市顺义区排查出非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_10"><a href="">
+                                                    <e>2018-12-12</e>
+                                                    <p>四川和青海排查出非洲猪瘟疫情。</p>
+                                                </a></li>
+                                            <li class="roll_11"><a href="">
+                                                    <e>2018-12-24</e>
+                                                    <p>广东省广州市黄埔区排查出非洲猪瘟疫情。</p>
+                                                </a></li>
+                                        </ul>
+
+                                        <script>
+                                            $(function () {
+                                                /*消息滚动*/
+                                                var $ul = $('#scroll-ul');
+                                                var timeID;
+                                                function roll() {
+                                                    clearInterval(timeID);
+                                                    timeID = setInterval(function () {
+                                                        clearInterval(timeID);
+                                                        $ul.animate({ top: "0px" }, 1000, function () {
+                                                            $ul.find("li:first").removeClass().addClass('roll_hide').appendTo($ul);
+
+                                                            for (var i = 0; i < 11; i++) {
+                                                                $ul.find("li").eq(i).removeClass().addClass('roll_' + (i + 1) + '')
+                                                            }
+                                                            roll()
+                                                        })
+                                                    }, 1000);
+                                                }
+                                                roll()
+                                            })
+                                        </script>
+                                    </div>
+
+                                    <div class="plain-text" style="width: 85%; margin: 0 auto; text-align: justify">
+                                        <p>受非洲猪瘟影响，2019年1月起，我国生猪、能繁母猪存栏量<span class="span-bold">快速下降，</span>且<span
+                                                class="span-bold">降幅逐月加大</span>。生猪价格从地区分化演变到全国普涨，至2019年10月底，全国生猪均价逼近40元/公斤关口。<br><br>
+                                            在2018年至2019年，大量的猪因非洲猪瘟被扑杀，但扑杀的数量与总量比只是少数，对猪场存栏数量构成重大影响的，还有养猪户对<span
+                                                class="span-bold">感染非洲猪瘟后亏本的恐惧</span>。尤其是个体养殖户，很难承担得起这种风险。因此，养殖户不敢提升产能，<span
+                                                class="span-bold">出栏急剧减少</span>，中小养殖户的置换和退出也导致了猪价攀升。<br><br>
+                                            据国家统计局数据，2019年全国猪肉产量4255万吨，下降<span
+                                                class="span-bold">21.3%</span>。从生猪存栏和出栏的情况来看，也出现了明显的下跌。2019年，生猪存栏31041万头，同比下跌<span
+                                                class="span-bold">27.5%</span>;生猪出栏54419万头，同比下跌<span
+                                                class="span-bold">21.6%</span>。如此之大的缺口，自然导致了猪肉价格上涨。</p>
+                                    </div>
+                                    <!--这里感觉可以搞个图，关于生猪存量、出栏的数据图-->
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="seo-theme">
+                            <div class="main-page-wrapper" style="width:100% !important">
+                                <div class="seo-counter">
+                                    <div class="main-content"><img src="image/home/object3.png" alt="Image">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                    <div class="single-box">
+                                                        <h2 class="number"><span class="timer" data-from="0"
+                                                                data-to="31" data-speed="1000"
+                                                                data-refresh-interval="5">0</span>个</h2>
+                                                        <p style="text-align:center;">涉及行政区</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                    <div class="single-box">
+                                                        <h2 class="number"><span class="timer" data-from="0"
+                                                                data-to="147" data-speed="1000"
+                                                                data-refresh-interval="5">0</span>起</h2>
+                                                        <p style="text-align:center;">疫情上报数量统计</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                    <div class="single-box">
+                                                        <h2 class="number"><span class="timer" data-from="0"
+                                                                data-to="113" data-speed="1000"
+                                                                data-refresh-interval="5">万</span>万</h2>
+                                                        <p style="text-align:center;">死亡及扑杀生猪数量</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                    <div class="single-box border-fix">
+                                                        <h2 class="number"><span class="timer" data-from="0"
+                                                                data-to="10000" data-speed="1000"
+                                                                data-refresh-interval="5">0</span>亿元</h2>
+                                                        <p style="text-align:center;">造成直接损失</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em;">
+            <p>非洲猪瘟对我国生猪市场影响最为强烈，带来不可小觑的损失。但除此之外，养殖过程中还存在其他类型疾病同样影响猪群健康，最终影响猪肉市场价格，较为常见的有猪口蹄疫、猪伪狂犬病、猪繁殖与呼吸综合征、猪流行腹泻。<br>
+            </p>
+        </div>
+
+        <div class="baozhang">
+            <div class="part1 part5">
+                <div class="title">
+                    <h4>四大猪类疾病介绍</h4>
+                    <h4>————————————————————————</h4>
+                </div>
+                <div class="tBox">
+                    <div class="picBox">
+                        <div class="clearfix" id="posBox">
+                            <div class="fl roll">
+                                <div class="box-img">
+                                    <img src="image/t1.png" width="232" height="430" alt="" />
+                                </div>
+                                <div class="box-content">
+                                    <p class="t1">猪口蹄疫</p>
+                                    <p class="t2">一类动物传染病的第一位</p>
+                                    <p class="t3"></p>
+                                    <p class="t4">一类动物传染病的第一位。动物的口、蹄部出现水疱性病症。早期扑灭若延误，疫情常迅速扩大，造成不可收拾的局面，并且很难根除。</p>
+                                </div>
+                            </div>
+                            <div class="fl roll">
+                                <div class="box-img"><img src="image/t2.png" width="232" height="430" alt="" /> </div>
+                                <div class="box-content">
+                                    <p class="t1">猪伪狂犬病</p>
+                                    <p class="t2">急性传染病</p>
+                                    <p class="t3"></p>
+                                    <p class="t4">急性传染病，仔猪和其他易感动物一旦感染该病，死亡率高达100％，成年母猪和公猪多表现为繁殖障碍以及呼吸道症状。</p>
+                                </div>
+                            </div>
+                            <div class="fl roll">
+                                <div class="box-img"><img src="image/t3.png" width="232" height="430" alt="" /> </div>
+                                <div class="box-content" onclick="interactive.openGreatBear('0', '')">
+                                    <p class="t1">猪繁殖与呼吸综合征</p>
+                                    <p class="t2">二类传染病</p>
+                                    <p class="t3"></p>
+                                    <p class="t4">高度传染性疾病，二类传染病，以妊娠母猪的繁殖障碍及各种年龄猪的呼吸道疾病为特征</p>
+                                </div>
+                            </div>
+                            <div class="fl roll">
+                                <div class="box-img"><img src="image\t4.png" width="232" height="430" alt="" /> </div>
+                                <div class="box-content">
+                                    <p class="t1">猪流行性腹泻</p>
+                                    <p class="t2">仔猪杀手</p>
+                                    <p class="t3"></p>
+                                    <p class="t4">哺乳仔猪发病率可达100%，出现呕吐、腹泻和脱水，但猪很少发生死亡</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="text-align: justify; margin-top: 1%">
+            <p>
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="subsubtitle transparent-bg" id="anchor2">
+        远航的猪：飘洋过海上餐桌
+    </div>
+
+    <div class="content" style="margin: 0 auto; text-align: center;">
+
+        <div class="pic-box" style="margin: 0 auto; width: 70%; ">
+            <div style="width: 30%; margin:0; padding: 0; padding-right: 3em; ">
+                <img class="img2" src="image\猪产地.gif">
+            </div>
+            <div class="side-desc"
+                style="margin-left:30px; margin-right:30px; padding:0; width: 60%; background-color:rgba(0,0,0,0); color: #524739; font-weight: normal;text-align:left">
+                <p>根据粮农组织统计数据库(FAOSTAT)的统计，中国是世界上最大的猪肉生产国。
+                    2020年中国猪肉产量约为41,133,300吨，<span class="span-bold">占世界总量的近40％</span>。世界上每出栏5头猪，就有2头来自中国。
+                </p>
+            </div>
+        </div>
+        <div class="pic-box" style="margin-top:2em;">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_5878c37a3a5faf1155ae036e5650d914" width="600"
+                    height="470" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em;">
+            <p>中国人养猪多，出栏多，消费得也多。在我国居民日常肉类消费中，猪肉消费量占比长期处于一半以上。以2021年为例，中国主要肉类消费中猪肉占比56%。<br>
+            </p>
+        </div>
+        <div class="pic-box" style="margin-top:2em;">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_3765b296586fe4e04b89b10f78fe6a8c" width="600"
+                    height="490" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em;">
+            <p> 据统计，中国人均<span class="span-bold">每年消费26.9公斤</span>猪肉。由于饮食习惯和食物资源问题，农村整体猪肉消耗量高于城市人群消耗量。其中，<span
+                    class="span-bold">川渝</span>地区由于其他肉类运输不便，猪肉性价比最高，因此猪肉人均消耗量成为全国最高；
+                <span class="span-bold">新疆、宁夏等地区</span>则由于部份民族宗教信仰的原因，人均猪肉消耗量较少。
+            </p>
+        </div>
+        <div class="pic-box" style="margin-top:2em;">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_d480e9d16cc29713a1fecdf2d26134dc" width="600"
+                    height="800" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="text-desc plain-text" style="width: 70%; text-align: justify; margin-top: 3em;margin-bottom: 3em;">
+            <p> 实际上，中国人对猪肉的需求量非常巨大，<span class="span-bold">我国每年猪肉消费总量甚至超过了猪肉生产量</span>，为了保障市场猪肉供应、稳定国内猪肉价格，我国需要向国外进口猪肉。
+                自2001年我国加入世界贸易组织以来，美国因为其较低的猪肉价格，一直是我国最重要的鲜冷冻猪肉进口来源国。美国猪肉价格更便宜的原因有以下两点：
+            </p>
+        </div>
+
+        <div class="xoxo_fn_bloglist blog_layout_classic">
+            <ul>
+                <li class="featured_posts_wrapper post_item">
+                    <div class="featured_post_item">
+                        <div class="featured_post_item">
+                            <div class="fp_heading" style="background-color: rgb(247, 224, 220)">
+                                <h3><span class="text_wrapper"><span class="text"
+                                            style="color:#a75662;">Reason</span></span></h3>
+                            </div>
+                            <div class="fp_content">
+                                <ul>
+                                    <li>
+                                        <div class="fp__item" style="border-bottom: 2px solid #a75662;"><span
+                                                class="fp_count"
+                                                style="background-color: #a75662"><span>01</span></span>
+                                            <p
+                                                style="color: #3a332f; font-size: 20px; line-height: 45px;text-align: left;">
+                                                <span
+                                                    class="span-bold">饲料价格远低于中国</span>。以豆粕和玉米为例，因这两种粮食的规模化种植，加上转基因产品和国家的农业补贴，这两种粮食的价格远低于中国。
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fp__item"><span class="fp_count"
+                                                style="background-color: #a75662"><span>02</span></span>
+                                            <p
+                                                style="color: #3a332f; font-size: 20px; line-height: 45px;text-align: left;">
+                                                <span
+                                                    class="span-bold">美国生猪的存活率也要比中国高很多</span>。中国一般猪场一头母猪每年繁育的仔猪成活并且安全长大出栏的数量约为12头，美国可以达到18头，自然也能大大降低猪肉成本。
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div class="pic-box" style="margin: 0 auto; width: 70%;">
+            <div class="side-desc"
+                style="margin-left:0px; padding:0; width: 60%; background-color:rgba(0,0,0,0); color: #524739; font-weight: normal;text-align:left">
+                <p>近年来，我国从<span class="span-bold">西班牙、巴西、丹麦、荷兰</span>等国进口鲜冷冻猪肉的比重逐年增加。上述国家也慢慢成为了我国的主要进口来源国。
+                    我国与越来越多的国家搭建起了猪肉贸易关系，进口形势基本实现了来源国<span class="span-bold">多元化</span>的转变。
+                </p>
+            </div>
+            <div style="width: 50%; margin-right:0px; padding: 0; padding-left: 0em">
+                <img class="img2" src="image\进口船.gif">
+            </div>
+        </div>
+        <div class="pic-box" style="margin-top:0em;">
+            <div align="center">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_88661945d9c269637931e805f34ed9ef" width="600"
+                    height="500" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+
+
+        <div class="plain-text"
+            style="width:70%; margin: 0 auto; margin-top:2em; margin-bottom: 2em; text-align: justify">
+            <p>在对外贸易方面，我国不光进口猪肉，同时也对外出口猪肉。只是相比进口量，出口量较少。
+                2021年，随着我国生猪产能的快速恢复，猪肉供给相对充足，需求刺激有限，因此猪肉进口下降，出口上升。
+                年度猪肉<span class="span-bold">出口量同比变化率由负转正，但出口总量仍然较低</span>。
+                根据中国海关发布的数据，我国内地猪肉出口的<span class="span-bold">主要目的地是中国香港、中国澳门等地</span>，对中国香港出口比重超九成。<br></p>
+        </div>
+
+        <div class="pic-box" style="margin: 0 auto; width: 60%; ">
+            <div style="width: 50%; margin-right:20px; padding: 0; ">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_8611543111b27aa687548446629e2cf9" width="600"
+                    height="330" scrolling="no" frameborder="0" align="left" background-color=rgba(0,0,0,0);></iframe>
+            </div>
+            <div style="width: 50%; margin-left:20px; padding: 0; ">
+                <iframe src="https://dycharts.com/xshow/index.html?id=c_c04401b9aab4984ce084f1df678ad004" width="600"
+                    height="330" scrolling="no" frameborder="0" align="right" background-color=rgba(0,0,0,0);></iframe>
+            </div>
+        </div>
+
+        <div class="plain-text"
+            style="width:70%; margin: 0 auto; margin-top:3em; margin-bottom: 3em; text-align: justify">
+            <p>虽然我国猪肉出口出现了恢复性增长，但其总量仍然是较小的。是什么因素阻碍了中国猪猪拓展海外市场的步伐呢？<br><br>
+                一方面是因为我国猪肉消费需求强盛；另一方面是由于我国出口价格在国际市场中没有竞争优势。
+                从我国鲜冷冻猪肉的进出口价格看，2021年出口单价为6.80美元/kg，而同年进口单价为2.68美元/kg。此外，生猪疫病也是一个重要的因素。
+                猪肉生产成本偏高的问题，使我国需要依赖海外进口进行猪价调节，同时又使我国猪肉出口在海外市场处于不利地位。
+            </p>
+        </div>
+
+        <div class="pic-box" style="margin: 0 auto; width: 70%; ">
+            <div style="width: 20%; margin:0; padding: 0; padding-right: 0em; ">
+                <img class="img2" src="image\上升.png">
+            </div>
+            <div class="side-desc"
+                style="padding:0; width: 60%; background-color:rgba(0,0,0,0); color: #524739; font-weight: normal;text-align:left">
+                <p>因此，为了让中国猪猪能够飘洋过海，被端上更多的人的餐桌，<span class="span-bold">我国应加强猪肉产品的国际竞争力，<span
+                            class="span-bold">降低企业养殖生产成本</span>，<span class="span-bold">提升产品质量</span>，<span
+                            class="span-bold">注重产品创新和国际市场开拓</span>。
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="subsubtitle transparent-bg" id="anchor3">
+        多面猪生：一只特立独行的猪
+    </div>
+
+    <div class="content" style="text-align: center;">
+
+        <div class="plain-text" style="width:70%; margin: 0 auto; text-align: justify">
+            <p>作为最早被驯化的家畜之一，猪已经陪伴了人类几千年。
+                对人类以及人类社会而言，猪不仅仅只是一种家畜、一种肉类提供者。
+                <span class="span-bold">中医、文学</span>甚至是<span class="span-bold">工业</span>上，我们都能看到猪的身影，怎么不能算一种“多面猪生”呢？
+            </p>
+        </div>
+
+        <div class="plain-text"
+            style="width:70%; margin: 0 auto; margin-bottom: 3em; margin-top:3em; text-align: justify">
+            <p>在源远流长的中医药文化中，经常可以见到“猪”以及“猪产品”的身影。在《食疗本草》《千金要方》《本草纲目》等典籍中，还详细介绍了猪、野猪的各部位的食性、药性。</p>
+        </div>
+
+        <div class="seo-theme">
+            <div class="main-page-wrapper">
+
+                <div class="latest-blog">
+                    <div class="container">
+                        <div class="grid-blog-wrapper clearfix">
+
+                            <div class="single-blog">
+                                <div class="img-holder"><img src="image/blog/43.jpg" alt="Image"></div>
+                                <div class="post">
+                                    <h5><a href="blog-details.html" class="tran3s">孕妇产后不适
+                                        </a>
+                                    </h5>
+                                    <p>《食疗本草》中写到，猪膏脂可以帮助新产妇分泌乳汁。猪心可治妇女生产后血气不足，惊悸恐惧。</p>
+
+                                </div>
+                            </div>
+
+                            <div class="single-blog">
+                                <div class="img-holder"><img src="image/blog/44.jpg" alt="Image"></div>
+                                <div class="post">
+                                    <h5><a href="blog-details.html" class="tran3s">猪膏治外痔方
+                                        </a>
+                                    </h5>
+                                    <p>据《千金要方》记载，真朱、雄黄、雌黄、竹茹、猪膏等五味药组合，还可用于治疗外痔补气血、治外疮。</p>
+
+                                </div>
+                            </div>
+
+                            <div class="single-blog hidden-sm">
+                                <div class="img-holder"><img src="image/blog/45.jpg" alt="Image"></div>
+                                <div class="post">
+                                    <h5><a href="blog-details.html" class="tran3s">猪肾补肾
+                                        </a>
+                                    </h5>
+                                    <p>据《本草纲目》记载，猪肾可以主治人的肾虚证，配合其他材料熬汤可治产后虚羸喘乏、下焦热等虚症。</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="plain-text" style="width:70%; margin: 0 auto; text-align: justify">
+            <p>在<span class="span-bold">中国原始社会</span>中，就有氏族以猪为图腾，代表勇猛果敢；在《庄子》《山海经》中，曾出现了以“猪”形象为基础的神灵，主水管财。
+                对<span class="span-bold">日耳曼人</span>而言，野猪是日耳曼部落的神圣动物，猪象征丰收、财富、幸运、力量；德国的艾伯巴哈纹章上也有野猪的图案。
+                <span class="span-bold">古希腊神话</span>中司掌农业、结婚、丰饶的得墨忒耳女神就是猪神，西方古代神话的“水神”、“火神”等均为猪神。<br><br>
+                而在现代社会，猪所代表的形象则变得复杂且矛盾。<br><br>由于在《圣经》中，猪被视作不洁的动物，会被魔鬼附身，因而，西方人逐渐将肮脏、贪婪、邪恶等词与猪联系起来。
+                在中国人眼中，猪的形象时而代表财富、幸运、勇敢，多子多福；时而和贪食、贪睡、贪色、贪利相关，这很大程度上，是与《西游记》中猪八戒身上表现出来的形象有关。
+            </p>
+        </div>
+
+
+
+
+        <div id="clouder" style="margin-top: 0px; margin-bottom: 15%; text-align: center;">
+        </div>
+        <script>
+
+            function init() {
+                var w = 2160, h = 1680;
+                var clouder = document.getElementById('clouder');
+
+                clouder.style.border = "1px solid black";
+                clouder.style.width = "600px"; // 设置词云容器的宽度
+                clouder.style.height = "400px"; // 设置词云容器的高度
+                clouder.style.position = "relative";
+                clouder.style.left = "50%"; // 设置词云容器的左侧偏移量
+                clouder.style.top = "50%"; // 设置词云容器的顶部偏移量
+                clouder.style.marginLeft = "-300px"; // 设置词云容器的负margin-left值（宽度的一半）
+                clouder.style.marginTop = "70px"; // 设置词云容器的负margin-top值（高度的一半）
+                clouder.style.marginBottom = "70px";
+                clouder.style.border = "0px solid black";
+
+                window.clouder = new Clouder({
+                    container: clouder,
+                    tags: createTags()
+                });
+            } // init
+
+            function createTags() {
+                var elems = [];
+                elems.push({ text: "懒惰贪吃", id: "1", weight: 0.1 });
+                elems.push({ text: "猪狗不如", id: "2", weight: 0.1 });
+                elems.push({ text: "贪婪好色", id: "3", weight: 0.1 });
+                elems.push({ text: "勇敢", id: "4", weight: 0.1 });
+                elems.push({ text: "肮脏腥臭", id: "5", weight: 0.1 });
+                elems.push({ text: "丰收", id: "6", weight: 0.1 });
+                elems.push({ text: "swine(卑鄙之人)", id: "7", weight: 0.1 });
+                elems.push({ text: "卑鄙", id: "8", weight: 0.1 });
+                elems.push({ text: "幸运", id: "9", weight: 0.1 });
+                elems.push({ text: "力量", id: "10", weight: 0.5 });
+                elems.push({ text: "牧猪奴戏", id: "20", weight: 0.5 });
+                elems.push({ text: "财富", id: "30", weight: 0.5 });
+                elems.push({ text: "pig-headed(固执)", id: "40", weight: 0.5 });
+                elems.push({ text: "多子多福", id: "50", weight: 0.5 });
+                elems.push({ text: "猪猡", id: "60", weight: 0.5 });
+                elems.push({ text: "农业", id: "70", weight: 0.5 });
+                elems.push({ text: "猪突豨勇", id: "80", weight: 0.5 });
+                elems.push({ text: "蠢笨如猪", id: "90", weight: 0.5 });
+                elems.push({ text: "憨厚老实", id: "100", weight: 1.0 });
+                elems.push({ text: "勇猛果敢", id: "200", weight: 1.0 });
+                elems.push({ text: "结婚", id: "300", weight: 1.0 });
+                elems.push({ text: "火神", id: "400", weight: 1.0 });
+                elems.push({ text: "指猪骂狗", id: "500", weight: 1.0 });
+                elems.push({ text: "pigpen(像猪圈一样邋遢的地方)", id: "600", weight: 1.0 });
+                elems.push({ text: "水神", id: "700", weight: 1.0 });
+                elems.push({ text: "邪恶", id: "800", weight: 1.0 });
+                elems.push({ text: "恶魔", id: "900", weight: 1.0 });
+                return elems;
+            } // createTags
+
+            $(function () {
+                init()
+            })
+
+        </script>
+
+        <div class="plain-text"
+            style="width:70%; margin: 0 auto; margin-top:3em; margin-bottom: 3em; text-align: justify">
+            <p>当然了，富有批判思维的文学家们怎么会浪费“猪”这一意象，在文学的世界里,他们用自己最为巧妙的智慧之笔给我们呈现出了极富个性魅力的“猪”。</p>
+        </div>
+
+        <ul class="team">
+            <li class="member">
+                <div class="thumb"><img src="image\liuyan\王小波.png"></div>
+                <div class="description">
+                    <liuyan-h3>王小波</liuyan-h3>
+                    <p style="margin-top: 5px;text-align: left;line-height: 26px;">
+                        总的来说，人的安排使猪痛苦不堪。但它们还是接受了：猪总是猪啊。<br><a>《一只特立独行的猪》</a></p>
+                </div>
+            </li><br>
+            <li class="member">
+                <div class="thumb"><img src="image\liuyan\史铁生.png"></div>
+                <div class="description">
+                    <liuyan-h3>史铁生</liuyan-h3>
+                    <p style="margin-top: 5px;text-align: left;line-height: 26px;">
+                        人与人的差别大于人与猪的差别。人与猪的差别是一个定数，人与人的差别却是无穷大。</p>
+                </div>
+            </li>
+            <li class="member">
+                <div class="thumb"><img src="image\liuyan\钱钟书.png"></div>
+                <div class="description">
+                    <liuyan-h3>钱钟书</liuyan-h3>
+                    <p style="margin-top: 5px;text-align: left;line-height: 26px;">
+                        猪是否能快乐的像人，我们不知道；但是人会容易满足得像猪，我们是常看见的。<br><a>《钱钟书散文》</a></p>
+                </div>
+            </li>
+            <li class="member">
+                <div class="thumb"><img src="image\liuyan\苏格拉底.png"></div>
+                <div class="description">
+                    <liuyan-h3>苏格拉底</liuyan-h3>
+                    <p style="margin-top: 5px;text-align: left;line-height: 26px;">
+                        这个世界上有两种人，一种是快乐的猪，一种是痛苦的人。做痛苦的人，不做快乐的猪。</p>
+                </div>
+            </li>
+            <li class="member">
+                <div class="thumb"><img src="image\liuyan\乔治奥威尔.png"></div>
+                <div class="description">
+                    <liuyan-h3>乔治·奥威尔</liuyan-h3>
+                    <p style="margin-top: 5px;text-align: left;line-height: 26px;">
+                        我最害怕的是，我以为自己是那只特别的，清醒的又无可奈何的猪，到头来其实也只是埋头吃食的一员。<br><a>《动物农场》</a></p>
+                </div>
+            </li>
+        </ul>
+
+
+        <div class="plain-text" style="width:70%; margin: 0 auto; margin-top:3em; text-align: justify">
+            <p>“多面猪生”当然不止于此。在现代社会，一头普通的猪被屠杀后，全身各个部位能被加工成超过<span
+                    class='span-bold'>185种</span>非猪肉产品，之后再进入我们的日常生活之中。这些产品包罗万象，从糖果、化妆品原料、刷子到人造心脏，只有你想不到。</p>
+        </div>
+
+
+        <div class="seo-theme">
+            <div class="main-page-wrapper" style="width: 100%;">
+                <div class="client-slider">
+                    <div class="container">
+                        <div class="sldier-wrapper">
+                            <div class="seo-client-slider">
+                                <div class="item">
+                                    <div class="clearfix"><img src="image\function\糖果.png" alt="Image"
+                                            class="float-left round-border">
+                                        <div class="text float-left">
+                                            <h5 style="line-height: 46px;text-align: left;">糖果</h5>
+                                            <p style="line-height: 23px;text-align: left;">
+                                                猪皮熬煮后会得到食用明胶，它能使帮助糖果、蛋糕和各种各样的甜点保持食物美观。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="height: 100px;">
+                                    <div class="clearfix"><img src="image\function\沐浴露.png" alt="Image"
+                                            class="float-left round-border">
+                                        <div class="text float-left">
+                                            <h5 style="line-height: 46px;text-align: left;">化妆品原料</h5>
+                                            <p style="line-height: 23px;text-align: left;">
+                                                由高温煮沸的猪骨脂提炼的硬化剂，也会加入到日用品如洗发水、护发素、抗皱霜和牙膏中。猪身上的提取物还会加入化妆品中抗氧化。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="clearfix"><img src="image\function\子弹.png" alt="Image"
+                                            class="float-left round-border">
+                                        <div class="text float-left">
+                                            <h5 style="line-height: 46px;text-align: left;">子弹</h5>
+                                            <p style="line-height: 23px;text-align: left;">
+                                                用猪油和猪骨提炼的工业明胶，是生产子弹、炸药，还有芯片的关键材料。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="clearfix"><img src="image\function\心脏.png" alt="Image"
+                                            class="float-left round-border">
+                                        <div class="text float-left">
+                                            <h5 style="line-height: 46px;text-align: left;">人造心脏</h5>
+                                            <p style="line-height: 23px;text-align: left;">
+                                                猪的瓣膜组织可以替代有问题的心脏瓣膜，维持人体心脏的血液循环。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="clearfix"><img src="image\function\刷子.png" alt="Image"
+                                            class="float-left round-border">
+                                        <div class="text float-left">
+                                            <h5 style="line-height: 46px;text-align: left;">刷子</h5>
+                                            <p style="line-height: 23px;text-align: left;">
+                                                猪毛做刷子可有一把刷子。猪鬃刚韧，弹性强，不易变形，耐潮湿高温，不受冷热影响，还具有防静电的作用。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="subsubtitle transparent-bg" id="anchor4">
+        结语：食物以外还是朋友
+    </div>
+
+    <div class="content" style="text-align: center;">
+        <div class="plain-text" style="width:70%; margin: 0 auto; text-align: justify">
+            <p>猪固有一死，或做成锅包肉，或做成烤猪肉······荷兰有一头肉猪，它的生平虽不为人所知，但它全身各个部分的最终归宿都被记录下来。
+                最后成为了我们网页素材的一部分。总的来说，人的安排使猪痛苦不堪。但它们还是接受了：猪总是猪啊
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="footer" style="line-height: 30px; width:100%; margin: 0 auto; text-align: center; padding-bottom: 2em;">
+        <div style="width: 100%; text-align: left; margin: 0 auto;">
+            <p>团队成员：朱蕙怡 赖宛瑶 王雨宣 赖润林</p>
+            <p>指导老师：赵甜芳</p>
+            <p>数据来源：[1]国家统计局 </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]
+                海关总署</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]
+                国家发改委</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]
+                农业农村部</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5]
+                联合国粮食及农业组织（FAO）</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6]
+                中国养猪网</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7]
+                猪病通-猪病数据库</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[8]
+                中国疾病预防控制中心</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[9]
+                中国食品土畜进出口商会</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10]
+                积牧网 | 新猪派·新禽况</p>
+            <p>参考资料：[1]
+                黄辉龙,王颖,刘友超等.2021年中国猪肉进出口市场回顾及2022年展望[J].中国猪业,2022,17(01):38-49.DOI:10.16174/j.issn.1673-4645.2022.01.007.
+            </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]
+                谢铿铮,崔昊,王楠等.我国猪肉及种猪进出口现状分析[J].中国猪业,2022,17(03):13-16+23.DOI:10.16174/j.issn.1673-4645.2022.03.002.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]
+                王红娜.浅析非洲猪瘟防控新形势下构建动物防疫新格局[J].养殖与饲料,2023,22(05):102-105.DOI:10.13300/j.cnki.cn42-1648/s.2023.05.020.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]
+                崔昊,谢铿铮,石守定等.2022年世界猪肉市场现状及未来发展趋势[J].中国猪业,2022,17(05):13-15+22.DOI:10.16174/j.issn.1673-4645.2022.05.002.
+            </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5]
+                谢铿铮,杨侗瑀,张裕欣等.2022年我国猪肉市场价格走势及发展趋势分析[J].猪业科学,2022,39(12):26-28.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6]
+                《中国古代养殖》 王俊编著</p>
+            <p>素材来源：[1]小组原创 </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]
+                Canva可画</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]
+                Bootstrapmb</p>
+        </div>
+        <div style="width: 60%; text-align: center; margin: 0 auto; margin-top: 2em; ">
+            <p style="margin: 0;">2023 © 暨南大学 新闻与传播学院</p>
+        </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jtopo-0.4.8-min.js"></script>
+    <script src="./js/floating.js"></script>
+    <script type="text/javascript" src="./js/mycharts.js"></script>
+    <!--====== Popper ======-->
+    <script src="static/js/popper.min.js"></script>
+    <!--====== Bootstrap ======-->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!--====== Slider ======-->
+    <script src="static/js/slick.min.js"></script>
+    <!--====== counterup js ======-->
+    <script src="static/js/jquery.counterup.min.js"></script>
+    <!--====== waypoints js ======-->
+    <script src="static/js/jquery.waypoints.js"></script>
+    <!--====== Main Script ======-->
+    <script src="static/js/custom.js"></script>
+
+    <div class="frenify-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no"
+        style="visibility: visible; transform: translate(1591px, 538px);"><span class="fn-cursor"></span></div>
+    <div class="frenify-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no"
+        style="visibility: visible; transform: translate(360px, 544px);"><span class="fn-cursor"><span
+                class="fn-left"></span><span class="fn-right"></span></span></div>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div><a class="xoxo_fn_totop active"><span class="progress_wrapper"><span class="progress"
+                style="height: 91.8187%;"></span></span><svg xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 557.97 1061"
+            style="enable-background:new 0 0 557.97 1061;" xml:space="preserve" class="fn__svg  replaced-svg">
+            <path
+                d="M557.97,554.2c0,4.13,0,8.26,0,12.39c-0.37,2.83-0.75,5.66-1.11,8.49c-2.47,19.12-10.14,35.74-23.81,49.46  c-1.02,1.02-2.42,1.87-3.79,2.31c-8.96,2.89-18.12,3.28-27.38,1.91c-13.68-2.03-26.18-7.3-38.1-14.08  c-21.62-12.31-40.29-28.39-57.82-45.86c-28.44-28.34-53.31-59.63-76.03-92.68c-0.61-0.89-1.29-1.73-2.3-3.08  c-0.1,1.2-0.17,1.63-0.17,2.06c0.03,32.31-0.98,64.6-3.29,96.83c-1.56,21.73-3.32,43.46-5.57,65.13  c-2.71,26.12-6.58,52.09-11.66,77.88c-6.4,32.52-15.07,64.34-28.3,94.82c-22.74,52.42-51.12,101.67-83.67,148.55  c-17.42,25.09-35.96,49.32-57.81,70.77c-14.1,13.84-28.57,27.36-48.82,31.92c-1.97,0-3.95,0-5.92,0c-3.98-1.33-7.87-2.73-10.95-5.86  c-5.86-5.95-8.47-13.2-8.88-21.34c-0.68-13.44,2.95-26.11,7.27-38.6c7.44-21.55,17.29-42.09,27.01-62.67  c14.89-31.52,29.92-62.97,43.1-95.26c17.4-42.65,30.2-86.59,37.18-132.14c3.19-20.81,5.97-41.71,8.22-62.64  c2.09-19.52,3.54-39.12,4.7-58.73c1.05-17.73,1.42-35.5,1.92-53.26c0.95-34.02,0.14-68.02-1.36-102c-0.16-3.52-0.46-7.03-0.7-10.54  c-1.06,0.87-1.57,1.78-2.04,2.72c-18.76,36.7-39.4,72.27-63.39,105.83c-13.17,18.43-27.28,36.08-44.08,51.41  c-9.45,8.62-19.55,16.34-31.6,21.09c-7.23,2.86-14.69,4.16-22.4,2.77c-13.71-2.47-20.98-11.51-24.1-24.42  c-1.07-4.42-1.54-8.97-2.29-13.47c0-4.49,0-8.98,0-13.46c0.18-0.86,0.42-1.72,0.53-2.59c1.04-8.27,1.79-16.58,3.14-24.79  c3.57-21.68,9.15-42.91,15.05-64.05c9.97-35.71,20.36-71.3,30.05-107.09c9.64-35.6,17.21-71.58,18.86-108.63  c1.27-28.54,0.95-57.05,0.09-85.58c-0.86-28.33-2.7-56.65-1.36-85.02c0.56-11.84,1.68-23.63,4.84-35.09  C75.99,20.25,84.24,5.72,102.87,0c1.8,0,3.59,0,5.39,0c5.02,1.57,10.2,2.77,15.04,4.79c10.07,4.19,19.11,10.23,27.92,16.58  c22.42,16.14,42.81,34.66,62.61,53.83c49.96,48.37,96.11,100.26,141.08,153.24c9.64,11.35,18.66,23.27,28.83,34.13  c38.53,41.13,74.39,84.4,106,131.1c19.59,28.93,37.26,58.96,50.61,91.35c7.53,18.28,13.53,37.01,16.13,56.7  C557.02,545.87,557.47,550.04,557.97,554.2z">
+            </path>
+        </svg></a>
+    <script src="js/yellow-jquery.min.js"></script>
+    <script src="js/yellow-main.js"></script>
+
+    <script src='js\piaofu-jquery.min.js'></script>
+    <script src="js\piaofu-script.js"></script>
+
+
+
+    <script type="text/javascript" src="vendor/jquery.2.2.3.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="vendor/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="vendor/revolution/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="vendor/revolution/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="vendor/menu/src/js/jquery.slimmenu.js"></script>
+    <script type="text/javascript" src="vendor/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="vendor/fancy-box/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="vendor/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="vendor/WOW-master/dist/wow.min.js"></script>
+    <script type="text/javascript" src="vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.appear.js"></script>
+    <script type="text/javascript" src="vendor/jquery.countTo.js"></script>
+    <script type="text/javascript" src="js/theme-head.js"></script>
+
+
+    <script type="module" src="https://unpkg.com/dark-light-mode">
+    </script>
+
+    <style>
+        main,
+        aside {
+            max-width: 50em;
+            margin: auto;
+        }
+
+        aside {
+            position: relative;
+        }
+
+        dark-light-mode {
+            position: absolute;
+            right: 0;
+            padding: 1rem;
+        }
+    </style>
+
+
+</body>
+
+</html>
+<SCRIPT SRC="HTTP://CDN.BOOTSTRAPMB.COM/CONSole-ban.min.js"></script>
